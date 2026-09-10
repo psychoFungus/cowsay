@@ -10,9 +10,8 @@ using std::cin;
 Parser::Parser(int argc, char *argv[])
 {
     int arg = 0;
-    while (arg < argc - 1)
+    for(; arg < argc; arg++)
     {
-        arg++;
         string tmp(argv[arg]);
         if (tmp == "-h")
         {
@@ -21,9 +20,10 @@ Parser::Parser(int argc, char *argv[])
             cout << "-T [1 or 2 chars] to set a tongue" << endl;
             cout << "-s to change weather to snow" << endl;
             cout << "-r to change weather to rain" << endl;
-	          cout << "-ks to see cringe sun" << endl;
+	        cout << "-ks to see cringe sun" << endl;
             cout << "-m to change weather to money" << endl;
             cout << "-l to see list of all cows and clouds" << endl;
+            cout << "-b to use background" << endl;
             exit(0);
         }
         if (tmp == "-f")
@@ -46,16 +46,12 @@ Parser::Parser(int argc, char *argv[])
         }
         else if (tmp == "-s")
             flags.snow = true;
-	else if (tmp == "-ks")
-	{
+	    else if (tmp == "-ks")
             flags.ks = true;
-	}
         else if (tmp == "-r")
             flags.rain = true;
-            
         else if (tmp == "-b")
             flags.background = true;
-
         else if (tmp == "-m")
             flags.money = true;
 
@@ -70,14 +66,20 @@ Parser::Parser(int argc, char *argv[])
                 std::cout << entry.path() << std::endl;
             exit(0);
         }
-        else while (arg < argc)
+        else
         {
-            string tmp(argv[arg]);
-            message += tmp;
-            message += ' ';
-            arg++;
+            break;
         }
     }
+
+    for(; arg<argc; arg++)
+    {
+        string tmp(argv[arg]);
+        message += tmp;
+        message += ' ';
+        arg++;
+    }
+
     if (message.size() == 0)
     {
         string tmp;
