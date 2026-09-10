@@ -13,7 +13,10 @@ Cloud::~Cloud() {}
 void Cloud::print(unsigned int left, char fill, unsigned int width)
 {
     for (unsigned int i = 0; i < width; i++)
-        cout << fill;
+        {if((i-3)%6 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
     cout << endl;
 
     unsigned int messageLength = width / 3;
@@ -21,7 +24,10 @@ void Cloud::print(unsigned int left, char fill, unsigned int width)
     for (unsigned int i = 0; i < 2; i++)
     {
         for (unsigned int j = 0; j < left; j++)
-            cout << fill;
+            {if((j-i)%6 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
         for (unsigned int j = 0; j < 4; j++)
             cout << picture[i][j];
         for (unsigned int j = 0; j < messageLength ; j++)
@@ -29,14 +35,20 @@ void Cloud::print(unsigned int left, char fill, unsigned int width)
         for (unsigned int j = 0; j < 4; j++)
             cout << picture[i][j + 5];
         for (unsigned int j = left + 8 + messageLength; j < width; j++)
-            cout << fill;
+            {if((j-i)%6 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
         cout << endl;
     }
     
     for (unsigned int i = 0; i < message.size()/messageLength + 1; i++)
     {
         for (unsigned int j = 0; j < left; j++)
-            cout << fill;
+            {if((j-i)%6 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
         for (unsigned int j = 0; j < 4; j++)
             cout << picture[2][j];
         unsigned int length = i < message.size()/messageLength ? messageLength : message.size() - i*messageLength;
@@ -47,14 +59,20 @@ void Cloud::print(unsigned int left, char fill, unsigned int width)
         for (unsigned int j = 0; j < 4; j++)
             cout << picture[2][j + 5];
         for (unsigned int j = left + 8 + messageLength; j < width; j++)
-            cout << fill;
+            {if((j-i)%6 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
         cout << endl;
     }
 
     for (unsigned int i = 3; i < picture.size(); i++)
     {
         for (unsigned int j = 0; j < left; j++)
-            cout << fill;
+            {if((j-i)%6 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
         for (unsigned int j = 0; j < 4; j++)
             cout << picture[i][j];
         for (unsigned int j = 0; j < messageLength ; j++)
@@ -62,7 +80,10 @@ void Cloud::print(unsigned int left, char fill, unsigned int width)
         for (unsigned int j = 0; j < 4; j++)
             cout << picture[i][j + 5];
         for (unsigned int j = left + 8 + messageLength; j < width; j++)
-            cout << fill;
+            {if((j-i)%6 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
         cout << endl;
     }
 }

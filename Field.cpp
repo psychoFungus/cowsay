@@ -21,19 +21,31 @@ void Field::print()
     cout << ':';
     cout << sun;
     for (int i = 0; i < x; i++)
-        cout << fill;
+        {if(i%6 - 1 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
     cout << endl;
     for (int i = 0; i < x; i++)
-        cout << fill;
+        {if(i%6 - 2 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
     cout << endl;
 
     cloud.print(2, fill, x);
     cow.print(2, fill, x);
 
     for (int i = 0; i < x; i++)
-        cout << fill;
+        {if(0 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
     cout << endl;
     for (int i = 0; i < x; i++)
-        cout << fill;
+        {if(0 == 0)
+                cout << fill;
+            else 
+                cout << " ";}
     cout << endl;
 }

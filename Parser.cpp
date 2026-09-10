@@ -9,7 +9,8 @@ using std::cin;
 
 Parser::Parser(int argc, char *argv[])
 {
-    int arg = 0;
+    
+    int arg = 1;
     for(; arg < argc; arg++)
     {
         string tmp(argv[arg]);
@@ -54,6 +55,8 @@ Parser::Parser(int argc, char *argv[])
             flags.background = true;
         else if (tmp == "-m")
             flags.money = true;
+        else if(tmp == "-sp")
+            flags.spiral = true;
 
         else if (tmp == "-l"){
             std::cout << "cows:" << std::endl;
@@ -77,14 +80,15 @@ Parser::Parser(int argc, char *argv[])
         string tmp(argv[arg]);
         message += tmp;
         message += ' ';
-        arg++;
     }
 
-    if (message.size() == 0)
+    while(message.size() == 0)
     {
         string tmp;
-        while (cin >> tmp)
+        while(cin >> tmp);
+        {
             message += tmp + " ";
+        }
     }
 }
 
